@@ -1,0 +1,25 @@
+device: mps
+model: cnn  (629,291 params)
+epoch  1/12  train 1.953/41.7%  val 0.840/73.5%
+  saved best -> checkpoints/best.pt  (val acc 73.46%)
+epoch  2/12  train 0.866/71.6%  val 0.334/89.0%
+  saved best -> checkpoints/best.pt  (val acc 89.00%)
+epoch  3/12  train 0.544/82.1%  val 0.243/91.9%
+  saved best -> checkpoints/best.pt  (val acc 91.93%)
+epoch  4/12  train 0.408/86.7%  val 0.158/94.9%
+  saved best -> checkpoints/best.pt  (val acc 94.93%)
+epoch  5/12  train 0.317/89.5%  val 0.127/95.7%
+  saved best -> checkpoints/best.pt  (val acc 95.72%)
+epoch  6/12  train 0.246/92.1%  val 0.077/97.5%
+  saved best -> checkpoints/best.pt  (val acc 97.48%)
+epoch  7/12  train 0.208/93.3%  val 0.058/98.3%
+  saved best -> checkpoints/best.pt  (val acc 98.27%)
+epoch  8/12  train 0.177/94.3%  val 0.044/99.1%
+  saved best -> checkpoints/best.pt  (val acc 99.10%)
+epoch  9/12  train 0.153/95.3%  val 0.035/99.2%
+  saved best -> checkpoints/best.pt  (val acc 99.21%)
+epoch 10/12  train 0.136/95.7%  val 0.028/99.4%
+  saved best -> checkpoints/best.pt  (val acc 99.44%)
+epoch 11/12  train 0.122/96.4%  val 0.026/99.4%
+epoch 12/12  train 0.117/96.4%  val 0.025/99.3%
+done. best val acc: 99.44%

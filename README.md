@@ -15,7 +15,7 @@ It deliberately covers the three things an AI/CV engineer does day to day:
    **FastAPI** endpoint, containerised with Docker, tested with pytest, and
    wired to CI.
 
-> _Work in progress — building it up commit by commit._
+> Trained, evaluated, and served end to end — see [Results](#results-from-a-real-run).
 
 ## Quick start
 
@@ -50,12 +50,21 @@ serve/            FastAPI app + Dockerfile + demo page
 tests/            unit tests (run without the dataset, CPU only)
 ```
 
-## Results
+## Results (from a real run)
 
-The 3-block CNN reaches **~98% test accuracy** on GTSRB after ~10 epochs on a
-single GPU (a few minutes), or comparable accuracy on CPU with more time.
-See [`docs/RESULTS.md`](docs/RESULTS.md) for the training curve and the
-confusion matrix.
+Trained on an Apple M-series GPU (MPS), 12 epochs, a few minutes:
+
+| Metric | Value |
+|--------|-------|
+| Best validation accuracy | **99.44%** |
+| Test accuracy (12,630 images) | **92.74%** |
+| Parameters | ~0.6M |
+
+The full training curve, confusion matrix, and a Grad-CAM example are in
+[`docs/RESULTS.md`](docs/RESULTS.md); the raw per-epoch log is committed at
+[`docs/assets/training-log.txt`](docs/assets/training-log.txt).
+
+![Grad-CAM example](docs/assets/gradcam-sample.png)
 
 ## License
 
