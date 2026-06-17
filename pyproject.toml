@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "signsight"
+version = "0.1.0"
+description = "Traffic-sign recognition: a PyTorch CNN trained from scratch, with Grad-CAM and a FastAPI serving layer"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Eric Wang", email = "cancleeric@users.noreply.github.com" }]
+keywords = ["computer-vision", "pytorch", "image-classification", "grad-cam", "gtsrb"]
+
+[tool.setuptools.packages.find]
+include = ["signsight*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+addopts = "-q"
