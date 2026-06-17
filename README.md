@@ -17,6 +17,9 @@ It deliberately covers the three things an AI/CV engineer does day to day:
 
 > Trained, evaluated, and served end to end — see [Results](#results-from-a-real-run).
 
+![predictions and Grad-CAM](docs/assets/gradcam-panel.png)
+*Real GTSRB test images (top) and the model's Grad-CAM saliency with its prediction (bottom).*
+
 ## Run in 30 seconds (offline, no download)
 
 The repo ships a **trained model** (`models/signsight-cnn.pt`, 2.4 MB) and a
