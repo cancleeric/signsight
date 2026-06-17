@@ -17,22 +17,40 @@ It deliberately covers the three things an AI/CV engineer does day to day:
 
 > Trained, evaluated, and served end to end — see [Results](#results-from-a-real-run).
 
-## Quick start
+## Run in 30 seconds (offline, no download)
+
+The repo ships a **trained model** (`models/signsight-cnn.pt`, 2.4 MB) and a
+small **sample set** (`sample_data/`), so a fresh clone runs immediately:
 
 ```bash
 pip install -r requirements.txt
 
-# Train (downloads GTSRB automatically on first run)
-python -m signsight.train --config configs/default.yaml
+# Classify a bundled sample with the bundled model
+python -m signsight.infer  --checkpoint models/signsight-cnn.pt \
+                           --image sample_data/04_speed-limit-70km-h_00014.png
 
-# Evaluate on the test split -> prints accuracy, writes a confusion matrix
-python -m signsight.evaluate --checkpoint checkpoints/best.pt
+# Explain it with Grad-CAM
+python -m signsight.gradcam --checkpoint models/signsight-cnn.pt \
+                            --image sample_data/04_speed-limit-70km-h_00014.png
 
-# Explain a single prediction with Grad-CAM
-python -m signsight.gradcam --checkpoint checkpoints/best.pt --image path/to/sign.png
-
-# Serve it
+# Serve it (loads the bundled model automatically)
 uvicorn serve.main:app --reload      # then open http://localhost:8000
+```
+
+Or with Docker (model baked in):
+
+```bash
+docker build -f serve/Dockerfile -t signsight .
+docker run -p 8000:8000 signsight
+```
+
+## Train it yourself
+
+The full GTSRB dataset downloads automatically on first run:
+
+```bash
+python -m signsight.train    --config configs/default.yaml   # writes checkpoints/best.pt
+python -m signsight.evaluate --checkpoint checkpoints/best.pt # accuracy + confusion matrix
 ```
 
 ## Project layout

@@ -5,6 +5,9 @@ outputs/
 *.pt
 *.pth
 *.onnx
+# ...but DO ship the bundled, ready-to-run model
+!models/
+!models/*.pt
 
 # python
 __pycache__/

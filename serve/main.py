@@ -23,7 +23,11 @@ from signsight.classes import CLASS_NAMES
 from signsight.infer import load_model, predict
 from signsight.model import build_model
 
-CHECKPOINT = os.getenv("SIGNSIGHT_CHECKPOINT")
+# Use the bundled, ready-to-run model by default; override with the env var.
+DEFAULT_CHECKPOINT = Path(__file__).resolve().parent.parent / "models" / "signsight-cnn.pt"
+CHECKPOINT = os.getenv("SIGNSIGHT_CHECKPOINT") or (
+    str(DEFAULT_CHECKPOINT) if DEFAULT_CHECKPOINT.exists() else None
+)
 DEVICE = "cpu"
 STATIC_DIR = Path(__file__).parent / "static"
 
