@@ -1,0 +1,15 @@
+# Default training configuration. Override with --config or env in CI.
+model: cnn            # cnn | resnet18
+data_root: data
+batch_size: 128
+val_fraction: 0.1
+num_workers: 2
+seed: 42
+
+epochs: 12
+lr: 0.001
+weight_decay: 0.0001
+# Cosine annealing of the learning rate over all epochs.
+scheduler: cosine
+
+checkpoint_dir: checkpoints
