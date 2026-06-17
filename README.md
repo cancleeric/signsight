@@ -60,11 +60,23 @@ Trained on an Apple M-series GPU (MPS), 12 epochs, a few minutes:
 | Test accuracy (12,630 images) | **92.74%** |
 | Parameters | ~0.6M |
 
-The full training curve, confusion matrix, and a Grad-CAM example are in
+The full training curve, confusion matrix, and Grad-CAM examples are in
 [`docs/RESULTS.md`](docs/RESULTS.md); the raw per-epoch log is committed at
 [`docs/assets/training-log.txt`](docs/assets/training-log.txt).
 
-![Grad-CAM example](docs/assets/gradcam-sample.png)
+### Predictions & Grad-CAM (real test images)
+
+![predictions and Grad-CAM](docs/assets/gradcam-panel.png)
+
+### The served app (live)
+
+The FastAPI service running with the trained checkpoint, classifying uploaded
+signs — a clear case (left) and a dark, hard one the model still gets at 99.8%
+with a sensible runner-up (right):
+
+| Speed limit (30km/h) — 100% | No passing — 99.8% |
+|---|---|
+| ![demo 30](docs/assets/demo-speed-limit-30.png) | ![demo no passing](docs/assets/demo-no-passing.png) |
 
 ## License
 

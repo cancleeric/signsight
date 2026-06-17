@@ -52,13 +52,22 @@ Near-diagonal: most error mass is between visually similar speed-limit signs
 
 ## Grad-CAM
 
-| Input | Grad-CAM |
-|-------|----------|
-| ![input](assets/sample-input.png) | ![gradcam](assets/gradcam-sample.png) |
+![predictions and Grad-CAM](assets/gradcam-panel.png)
 
-On test image `00100.ppm` the model predicts **Speed limit (30km/h)** at 100%
-confidence, and the Grad-CAM heat concentrates on the sign's interior (the
-numerals) rather than the background — the cue we want it to use.
+Top row: input test images. Bottom row: Grad-CAM overlay with the predicted
+label and confidence. The heat concentrates on each sign's interior (numerals
+/ pictogram) rather than the background — the cue we want it to use.
+
+## The served app
+
+The FastAPI service with the trained checkpoint, classifying uploaded signs:
+
+| Clear case | Hard (dark) case |
+|---|---|
+| ![demo 30](assets/demo-speed-limit-30.png) | ![demo no passing](assets/demo-no-passing.png) |
+
+Even the dark, low-contrast "No passing" sign is classified at 99.8%, with the
+near-identical "No passing for vehicles over 3.5t" as the sensible runner-up.
 
 ## Reproduce
 
